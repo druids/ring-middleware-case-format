@@ -13,7 +13,7 @@ Leiningen/Boot
 --------------
 
 ```clojure
-[ring-middleware-case-format "0.0.0"]
+[ring-middleware-case-format "0.1.0"]
 ```
 
 Documentation
