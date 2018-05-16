@@ -16,6 +16,28 @@ Leiningen/Boot
 [ring-middleware-case-format "0.0.0"]
 ```
 
+Documentation
+-------------
+
+`wrap->kebab->snake` use as a normal middleware e.g.:
+
+```clojure
+(require '[ring.middleware.case-format :refer [wrap->kebab->snake]])
+(wrap->kebab->snake
+  (fn [request]
+    {:body {:snake-case true}}))
+```
+
+`wrap->kebab->snake` converts all following keys from `request` into kebab-case:
+  - `:params`
+  - `:body-params`
+  - `:form-params`
+  - `:query-params`
+
+and is converts a response's `:body` into snake\_case.
+
+The keys will stay in their type (e.g. if a key is in keyword, it will be converted in a proper case and back into
+ a keyword).
 
 Contribution
 ------------
