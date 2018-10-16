@@ -39,6 +39,8 @@ and is converts a response's `:body` into snake\_case.
 The keys will stay in their type (e.g. if a key is in keyword, it will be converted in a proper case and back into
  a keyword).
 
+The namespace `ring.middleware.case-format` also exposed public functions `->camel`, `->kebab` and `->snake`.
+
 Contribution
 ------------
 
