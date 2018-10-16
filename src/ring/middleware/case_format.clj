@@ -1,7 +1,7 @@
 (ns ring.middleware.case-format
   (:require
     [clojure.walk :refer [postwalk]]
-    [camel-snake-kebab.core :refer [->kebab-case ->snake_case]]))
+    [camel-snake-kebab.core :refer [->kebab-case ->snake_case ->camelCase]]))
 
 
 (defmulti ^:private format-key
@@ -38,9 +38,11 @@
               data)))
 
 
-(def ^:private ->kebab (partial format-keys ->kebab-case))
+(def ->kebab (partial format-keys ->kebab-case))
 
-(def ^:private ->snake (partial format-keys ->snake_case))
+(def ->snake (partial format-keys ->snake_case))
+
+(def ->camel (partial format-keys ->camelCase))
 
 
 (defn wrap->kebab->snake

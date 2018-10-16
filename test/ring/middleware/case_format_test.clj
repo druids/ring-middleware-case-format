@@ -1,7 +1,7 @@
 (ns ring.middleware.case-format-test
   (:require
     [clojure.test :refer [deftest is]]
-    [ring.middleware.case-format :refer [wrap->kebab->snake]]))
+    [ring.middleware.case-format :refer [wrap->kebab->snake ->camel ->kebab ->snake]]))
 
 
 (deftest wrap->kebab->snake-test
@@ -18,3 +18,7 @@
                      :form-params {:snake_case 3}
                      :query-params {"snake_case" "4"}})))))
 
+(deftest formatters-test
+  (is (= {:camelCase 1} (->camel {:camel-case 1})))
+  (is (= {:kebab-case 1} (->kebab {:kebabCase 1})))
+  (is (= {:snake_case 1} (->snake {:snake-case 1}))))
