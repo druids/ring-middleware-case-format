@@ -21,4 +21,5 @@
 (deftest formatters-test
   (is (= {:camelCase 1} (->camel {:camel-case 1})))
   (is (= {:kebab-case 1} (->kebab {:kebabCase 1})))
-  (is (= {:snake_case 1} (->snake {:snake-case 1}))))
+  (is (= {:snake_case 1} (->snake {:snake-case 1})))
+  (is (= {:ring.middleware.case_format_test/snake_case 1} (->snake {::snake-case 1}))))
