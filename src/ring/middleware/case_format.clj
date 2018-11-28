@@ -14,7 +14,9 @@
 
 (defmethod ^:private format-key clojure.lang.Keyword
   [k format-fn]
-  (-> k name format-fn keyword))
+  (if-let [keyword-ns (namespace k)]
+    (keyword (str (format-fn keyword-ns) "/" (format-fn (name k))))
+    (-> k name format-fn keyword)))
 
 (defmethod ^:private format-key :default
   [k _]
