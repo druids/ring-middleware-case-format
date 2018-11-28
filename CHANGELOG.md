@@ -1,3 +1,10 @@
+## 0.2.1
+
+#### Fixes
+
+  - Fix #7 wrap->kebab->snake strip namespace from a keyword in keys
+
+
 ## 0.2.0
 
 #### New Features
